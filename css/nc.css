@@ -1,0 +1,238 @@
+:root {
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+}
+
+.nc {
+  position: relative;
+  width: 80vmin;
+  height: 80vmin;
+}
+
+.nc-position {
+  background-color: var(--gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+}
+
+.nc-winner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 1rem;
+  opacity: 0.6;
+  background-color: var(--white);
+}
+
+.nc-winner-horizontal-top {
+  width: 90%;
+  height: 1em;
+  top: 16.6666666666%;
+  left: 5%;
+  transform: rotate(0deg) translate(0, -50%);
+}
+.nc-winner-horizontal-middle {
+  width: 90%;
+  height: 1em;
+  top: 50%;
+  left: 5%;
+  transform: translate(0, -50%);
+}
+.nc-winner-horizontal-bottom {
+  width: 90%;
+  height: 1em;
+  top: 83.3333333332%;
+  left: 5%;
+  transform: translate(0, -50%);
+}
+.nc-winner-vertical-left {
+  width: 1em;
+  height: 90%;
+  top: 5%;
+  left: 16.6666666666%;
+  transform: translate(-50%, 0);
+}
+.nc-winner-vertical-middle {
+  width: 1em;
+  height: 90%;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.nc-winner-vertical-right {
+  width: 1em;
+  height: 90%;
+  top: 5%;
+  left: 83.3333333332%;
+  transform: translate(-50%, 0);
+}
+.nc-winner-diagonal-top-left {
+  width: 1em;
+  height: 120%;
+  top: -10%;
+  left: 50%;
+  transform-origin: left;
+  transform: rotate(-45deg) translate(-50%, 0);
+}
+.nc-winner-diagonal-top-right {
+  width: 1em;
+  height: 120%;
+  top: -10%;
+  left: 50%;
+  transform-origin: left;
+  transform: rotate(45deg) translate(-50%, 0);
+}
+
+.nc-board {
+  background-color: var(--dark);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 2em;
+  justify-content: stretch;
+  position: relative;
+}
+
+.nc-board:before,
+.nc-board:after {
+  content: "";
+  position: absolute;
+  border-width: 0;
+  border-color: rgba(0,0,0,0.4);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.nc-board:before {
+  background-color: var(--success);
+  opacity: 0.1;
+  top: 33.3333333333%;
+  left: 0;
+  width: 100%;
+  height: 33.3333333333%;
+}
+
+.nc-board:after {
+  background-color: var(--primary);
+  opacity: 0.1;
+  top: 0;
+  left: 33.3333333333%;
+  height: 100%;
+  width: 33.3333333333%;
+}
+
+.nc-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33.3333333333%;
+  height: 33.3333333333%;
+}
+
+.nc-cell-live {
+  cursor: pointer;
+}
+
+.nc-cell-active {
+  background-color: var(--gray-900);
+  cursor: default;
+}
+
+.nc-winner-cell {
+  background-color: var(--warning);
+}
+
+.nc-winner-cell .nc-shape-icon-circle {
+  border-color: var(--dark);
+}
+
+.nc-winner-cell .nc-shape-icon-cross {
+  background-color: var(--dark);
+}
+
+.nc-winner-cell .nc-shape-icon-cross:before {
+  background-color: var(--dark);
+}
+
+.nc-cell:nth-child(1) {
+  border-top-left-radius: 2em;
+}
+
+.nc-cell:nth-child(3) {
+  border-top-right-radius: 2em;
+}
+
+.nc-cell:nth-child(7) {
+  border-bottom-left-radius: 2em;
+}
+
+.nc-cell:nth-child(9) {
+  border-bottom-right-radius: 2em;
+}
+
+/*.nc-cell:nth-child(1n) {*/
+/*  border-right: 1px solid var(--gray-400);*/
+/*  border-bottom: 1px solid var(--gray-400);*/
+/*}*/
+
+/*.nc-cell:nth-child(3n+3) {*/
+/*  border-right: 0;*/
+/*}*/
+
+/*.nc-cell:nth-child(7),*/
+/*.nc-cell:nth-child(8),*/
+/*.nc-cell:nth-child(9) {*/
+/*  border-bottom: 0;*/
+/*}*/
+
+.nc-shape {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nc-shape-icon-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1vmin solid var(--white);
+}
+
+.nc-shape-icon-cross {
+  width: 1vmin;
+  height: 100%;
+  border-radius: 100px;
+  background-color: var(--white);
+  transform: rotate(45deg);
+}
+
+.nc-shape-icon-cross:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background-color: var(--white);
+  transform: rotate(90deg);
+  display: block;
+}
+
+.nc-restart {
+  width: 80vmin;
+  display: flex;
+  justify-content: center;
+}
